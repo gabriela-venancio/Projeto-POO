@@ -1,0 +1,53 @@
+.label{
+    -fx-font-size: 16pt;
+    -fx-opacity: 0.9;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Semibold";
+}
+
+.titulo{
+    -fx-font-size: 15pt;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Semibold";
+}
+
+.text-field {
+    -fx-font-size: 15pt;
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0, 0 0 2 0 ;
+    -fx-background-radius: 0 ;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Semibold";
+}
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-background ;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Segoe UI Semibold";
+    }
+
+.button {
+    -fx-font-size: 15pt;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#B22222, 	#FF6347);
+    -fx-effect: dropshadow( three-pass-box , rgba(1,0,0,1) , 1, 1 , 1 , 1 );
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#00FF00, #ADFF2F);
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header .label,
+.table-view .column-header-background .filler {
+
+    -fx-background-color: #191970;
+    -fx-text-fill: white;
+}
+
+.root{
+    -fx-base: #B0C4DE;
+    -fx-background:#E0FFFF ;
+}
