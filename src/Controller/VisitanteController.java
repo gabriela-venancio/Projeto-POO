@@ -31,56 +31,8 @@ public class VisitanteController {
 	
 	
 
-	public Visitante getEntityVisitante() {
-		Visitante v = new Visitante();
-		v.setNome(nome.get().toLowerCase());
-		v.setCpf(cpf.get().toLowerCase());
-		v.setDestino(destino.get().toLowerCase());
-		return v;
-	}
-	public void setEntity(Visitante visita) {
-        if (visita != null) {
-            nome.set(visita.getNome());
-            cpf.set(visita.getCpf());
-            destino.set(visita.getDestino());
-            
-        }
-    }
-	
-	 
-	public void limpar() {
-		nome.setValue("");
-		cpf.setValue("");
-		destino.setValue("");
-	}
-	
-	public String getNome() {
-		return nome.get();
-	}
-	public StringProperty nomeProperty() {
-		return nome;
-	}
-	
-	public String getCpf() {
-		return cpf.get();
-	}
-	
-	public StringProperty cpfProperty() {
-		return cpf;
-	}
-	
-	public String getDestino() {
-		return destino.get();
-	}
-	public StringProperty destinoProperty() {
-		return destino;
-	}
 	
 	
-	
-	    TableColumn<Visitante, String> col1 = new TableColumn<>("nome");
-        TableColumn<Visitante, String> col2= new TableColumn<>("cpf");
-        TableColumn<Visitante, String> col3 = new TableColumn<>("destino");
   
  @SuppressWarnings("unchecked")
  public VisitanteController() {
@@ -89,7 +41,7 @@ public class VisitanteController {
 	    col1.setCellValueFactory(new PropertyValueFactory<>("nome"));
 	 
 	    
-	    TableColumn<Visitante, String> col2 = new TableColumn<>("CPF");
+	    TableColumn<Visitante, String> col2 = new TableColumn<>("Cpf");
 	    col2.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 	    
 	    TableColumn<Visitante, String> col3 = new TableColumn<>("Destino");
@@ -98,9 +50,10 @@ public class VisitanteController {
 	    
 	    tabelav.getColumns().addAll(col1, col2, col3);
 	    
-	    col1.setPrefWidth(190);
-		col2.setPrefWidth(190);
-		col3.setPrefWidth(190);
+	    col1.setPrefWidth(19);
+	    
+		col2.setPrefWidth(19);
+		col3.setPrefWidth(19);
 			  
         
         
@@ -118,7 +71,7 @@ public class VisitanteController {
    
 
     public void adicionar(){
-        Visitante m = getEntityVisitante();
+        Visitante m = new  Visitante();
         m.setNome(nome.get());
         m.setCpf(cpf.get());
         m.setDestino(destino.get());
@@ -135,6 +88,7 @@ public class VisitanteController {
         
         v.clear();
         v.addAll(visListPesquisa);
+        limpar();
     }
 	
     public TableView<Visitante> getTable() {
@@ -142,6 +96,28 @@ public class VisitanteController {
         return  tabelav;
         
     }
+	
+	 
+	public void limpar() {
+		nome.setValue("");
+		cpf.setValue("");
+		destino.setValue("");
+	}
+	
+	
+	public StringProperty nomeProperty() {
+		return nome;
+	}
+	
+
+	
+	public StringProperty cpfProperty() {
+		return cpf;
+	}
+
+	public StringProperty destinoProperty() {
+		return destino;
+	}
 	
 	
 }

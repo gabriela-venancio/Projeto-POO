@@ -30,7 +30,6 @@ public class ChaveBoundary extends Application{
     private final TextField chaTxtResponsaval = new TextField();
     private final Button chaBtnCadastrar = new Button("Cadastrar");
     private final Button chaBtnPesquisar = new Button("Pesquisar");
-    private final Button chaBtnLimpar = new Button("Limpar");
     private final Button chaBtnInicio = new Button("Inicio");
 
     private final Label chaLblChaves = new Label("");
@@ -57,19 +56,19 @@ public class ChaveBoundary extends Application{
 		 Bindings.bindBidirectional(chaControl.chavesProperty(), chaTxtChaves.textProperty());
 	        Bindings.bindBidirectional(chaControl.responsavelProperty(), chaTxtResponsaval.textProperty());
 	        
-	        formularioChaves.add(chaTxtChaves, 0, 0);
-	        formularioChaves.add(chaLblChaves, 1, 0);
+	        formularioChaves.add(chaTxtChaves, 0, 1);
+	      
 	        
 	        formularioResponsavel.add(chaTxtResponsaval, 2, 0);
-	        formularioResponsavel.add(chaLblResponsavel, 3, 0);
 
-	        
+
+	        formulariopainel.add(new Label("Chave:"), 1,0);
+	        formulariopainel.add(new Label("Responsavel:"), 3, 0);
 	        formulariopainel.add(formularioChaves,1,2);
 	        formulariopainel.add(formularioResponsavel,3,2);
-	        formulariopainel.add(chaBtnCadastrar, 4, 0);
-	        formulariopainel.add(chaBtnInicio, 4, 2);
-	        formulariopainel.add(chaBtnLimpar, 4, 3);
-	        formulariopainel.add(chaBtnPesquisar, 4, 4);
+	        formulariopainel.add(chaBtnCadastrar, 4, 2);
+	        formulariopainel.add(chaBtnInicio, 6, 2);
+	        formulariopainel.add(chaBtnPesquisar, 9, 2);
 	        chaPanePrincipal.getStylesheets().add(Objects.requireNonNull(tela.class.getResource("style.css")).toExternalForm());
 
 	        
@@ -105,7 +104,7 @@ public class ChaveBoundary extends Application{
 		
 			
 	private void setStage(Stage stage2) {
-		this.stage = stage;
+		this.stage = stage2;
 		
 	}
 

@@ -28,10 +28,8 @@ public class RondaBoundary extends Application {
 
 	    private final Button ronBtnCadastrar = new Button("Cadastrar");
 	    private final Button ronBtnPesquisar = new Button("Pesquisar");
-	    private final Button ronBtnLimpar = new Button("Limpar");
 	    private final Button ronBtnInicio = new Button("Inicio");
 
-	    private final Label ronLblnome = new Label("nome:");
 	    Label ronTitle = new Label(" ronda");
 
 	    private final RondaController ronControl = new RondaController();
@@ -72,7 +70,7 @@ public class RondaBoundary extends Application {
         ronPaneForm.setHgap(5);
         ronPaneForm.setAlignment(Pos.CENTER);
 
-        ronPaneButton.getChildren().addAll(ronBtnCadastrar, ronBtnPesquisar, ronBtnLimpar,  ronBtnInicio);
+        ronPaneButton.getChildren().addAll(ronBtnCadastrar, ronBtnPesquisar, ronBtnInicio);
         ronPaneButton.setHgap(50);
         ronPaneButton.setVgap(25);
         ronPaneButton.setAlignment(Pos.CENTER);
@@ -104,6 +102,7 @@ public class RondaBoundary extends Application {
 		Scene scn = new Scene(ronPanePrincipal, 1400,800);
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.setScene(scn);
+		stage.setResizable(false);
 		stage.show();
 		setStage(stage);
         

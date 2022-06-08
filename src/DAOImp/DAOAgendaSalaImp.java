@@ -41,7 +41,7 @@ public class DAOAgendaSalaImp implements DAOAgendarSala{
 	
 		
 		List<AgendarSala> lista = new ArrayList<>();
-        String sql = "SELECT * FROM agendavideo WHERE nome LIKE '%" + string + "%'";
+        String sql = "SELECT * FROM salavideo WHERE responsavel LIKE '" + string + "%'";
 
         
         try(Connection con = DriverManager.getConnection(URL, USER, PASSWORD)) {

@@ -27,7 +27,6 @@ public class FuncionarioBoundary extends Application {
 	     TextField funTxtCargo = new TextField();
 	    Button funBtnCadastrar = new Button("Cadastrar");
 	     Button funBtnPesquisar = new Button("Pesquisar");
-	    Button funBtnLimpar = new Button("Limpar");
 	     Button funBtnInicio = new Button("Inicio");
 
 	     Label funLblFuncionarionome = new Label("nome");
@@ -71,7 +70,7 @@ public class FuncionarioBoundary extends Application {
 	        funPaneForm.setAlignment(Pos.CENTER);
 
 	        
-	        funPaneButton.getChildren().addAll(funBtnCadastrar, funBtnPesquisar, funBtnLimpar, funBtnInicio);
+	        funPaneButton.getChildren().addAll(funBtnCadastrar, funBtnPesquisar, funBtnInicio);
 
 	        funPaneButton.setHgap(50);
 	        funPaneButton.setVgap(25);

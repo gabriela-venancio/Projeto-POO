@@ -2,8 +2,6 @@ package Controller;
 
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import DAO.DAOChaves;
 import DAOImp.DAOChavesImp;
 import Entity.Chaves;
@@ -52,7 +50,6 @@ public class ChavesController {
 			
 			tableChaves.setItems(chave);
 			tableChaves.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-			//tableChaves.setEditable(true);
 			
 		}
 
@@ -63,7 +60,6 @@ public class ChavesController {
 	        chave.add(c);
 	        daoChaves.adicionar(c);
 	        	        
-	        JOptionPane.showMessageDialog(null, "Adicionado com sucesso!");	
 
 	        limpar();
 	    }

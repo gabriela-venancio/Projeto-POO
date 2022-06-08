@@ -26,12 +26,14 @@ public class FuncionarioController {
 	private TableView<Funcionario> tableFuncionario = new TableView<>();
 
 	  
-	private StringProperty nome =  new SimpleStringProperty("");
-	private StringProperty cpf = new SimpleStringProperty("");
-	private StringProperty cargo = new SimpleStringProperty("");
+	private StringProperty nome =  new SimpleStringProperty();
+	private StringProperty cpf = new SimpleStringProperty();
+	private StringProperty cargo = new SimpleStringProperty();
 	
 	private DAOFun daofun = new DAOFuncImp();
 
+	
+	
 	
 	public TableView<Funcionario> getTable() {
         return tableFuncionario;
@@ -56,38 +58,38 @@ public class FuncionarioController {
 		
 		return c;
 	}
-	
-	   public void generatedTable() {
-	        TableColumn<Funcionario, String> colNome = new TableColumn<>("nome");
-	        TableColumn<Funcionario, String> colCpf = new TableColumn<>("cpf");
-	        TableColumn<Funcionario, String> colCargo = new TableColumn<>("cargo");
-	        
-	        
-	        Callback<TableColumn<Funcionario, String>, TableCell<Funcionario, String>> cellFactory = col ->
-	                new TableCell<Funcionario, String>() {
-	                    @Override
-	                    public void updateItem(String item, boolean empty) {
-	                        super.updateItem(item, empty);
-	                        if (empty) {
-	                            setGraphic(null);
-	                        }
-	                    }
-	                };
-	      
-	        colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-	        colCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-	        colCargo.setCellValueFactory(new PropertyValueFactory<>("cargo"));
-	        
+		@SuppressWarnings("unchecked")
+	   public FuncionarioController() {
+	        TableColumn<Funcionario, String> col1 = new TableColumn<>("Nome");
+	       col1.setCellValueFactory(new PropertyValueFactory<>("nome"));
 
-	        tableFuncionario.getColumns().addAll( colNome, colCpf, colCargo);
-	        tableFuncionario.getSelectionModel().selectedItemProperty().addListener((obj, antigo, novo) -> {
-	            setEntity(antigo);
-	            setEntity(novo);
-	        });
-	        tableFuncionario.setItems(funcionarios);
+	        
+	        TableColumn<Funcionario, String> col2 = new TableColumn<>("CPF");
+	       col2.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 
-	        tableFuncionario.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-	    }
+	        
+	        TableColumn<Funcionario, String> col3 = new TableColumn<>("Cargo");
+	        col3.setCellValueFactory(new PropertyValueFactory<>("cargo"));
+
+	        
+	    
+
+	        tableFuncionario.getColumns().addAll( col1, col2, col3);
+	           
+
+			col1.setPrefWidth(190);
+			col2.setPrefWidth(190);
+			
+
+			
+			
+			tableFuncionario.setItems(funcionarios);
+			tableFuncionario.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+			
+		}
+	        
+	        
+	        
 
 	public void limpar() {
 		nome.setValue("");
@@ -120,21 +122,26 @@ public class FuncionarioController {
 		return cargo;
 	}
 
-	public boolean pesquisarPorNome() {
+	public void pesquisarPorNome() {
 		 List<Funcionario> funListPesquisa = daofun.pesquisarPorNome(nome.get());
-	        if (funListPesquisa==null){
-	            return false;
-	        }
+	      
 	        funcionarios.clear();
 	        funcionarios.addAll(funListPesquisa);
-	        return true;
+	        limpar();
 	    }
 
 	
 
 
 	public void adicionar() {
-		Funcionario f = getEntityFun();
+		Funcionario f = new Funcionario();
+		
+		f.setNome(nome.get());
+		f.setCpf(cpf.get());
+		f.setCargo(cargo.get());
+		funcionarios.add(f);
+		
+		
         daofun.adicionar(f);
 		
 	}

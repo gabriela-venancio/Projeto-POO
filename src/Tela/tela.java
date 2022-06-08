@@ -101,6 +101,7 @@ public class tela extends Application  {
 		
 		Scene scn = new Scene(menuPanePrincipal, 1400, 800);
 		stage.initStyle(StageStyle.UNDECORATED);
+		
 		stage.setScene(scn);
 		stage.show();
 		setStage(stage);

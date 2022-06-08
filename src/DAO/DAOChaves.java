@@ -11,11 +11,11 @@ public interface DAOChaves {
 	
 	
 
-	void remover(String chave);
 
 	List<Chaves> pesquisarPorNome(String string);
 
-	List<Chaves> buscarChaves(String chaves);
+
+
 
 	
 }

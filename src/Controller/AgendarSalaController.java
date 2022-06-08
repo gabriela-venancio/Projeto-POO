@@ -20,16 +20,16 @@ import javafx.util.Callback;
 
 public class AgendarSalaController {
 
+	private DAOAgendarSala daoAgendarSala = new DAOAgendaSalaImp();
 
 	private ObservableList<AgendarSala> agendarSalas = FXCollections.observableArrayList();
 	private TableView<AgendarSala> tableAgendarSala = new TableView<>();
 
 	
-	private StringProperty motivo = new SimpleStringProperty("");
-	private StringProperty responsavel = new SimpleStringProperty("");
-	private StringProperty data = new SimpleStringProperty("");
+	private StringProperty motivo = new SimpleStringProperty();
+	private StringProperty responsavel = new SimpleStringProperty();
+	private StringProperty data = new SimpleStringProperty();
 	
-	private DAOAgendarSala daoAgendarSala = new DAOAgendaSalaImp();
 	
 	public AgendarSala getEntityAgendarSala() {
 		AgendarSala a = new AgendarSala();
@@ -65,7 +65,7 @@ public class AgendarSalaController {
 	}
 	
 	public String getResponsavel() {
-		return motivo.get();
+		return responsavel.get();
 	}
 	public StringProperty responsavelProperty() {
 		return responsavel;
@@ -80,58 +80,61 @@ public class AgendarSalaController {
 		return data;
 	}
 
-	public boolean pesquisarPorNome() {
-		 List<AgendarSala> asListPesquisa = daoAgendarSala.pesquisarPorNome(responsavel.get());
-	        if (asListPesquisa==null){
-	            return false;
-	        }
-	        agendarSalas.clear();
-	        agendarSalas.addAll(asListPesquisa);
-	        return true;
-	    }
-
-
-	public void generatedTable() {
-	      TableColumn<AgendarSala, String> colMotivo = new TableColumn<>("motivo");
-	        TableColumn<AgendarSala, String> colResponsavel = new TableColumn<>("responsavel");
-	        TableColumn<AgendarSala, String> colData = new TableColumn<>("data");
+	
+			TableColumn<AgendarSala, String> col1 = new TableColumn<>("motivo");
+	        TableColumn<AgendarSala, String> col2 = new TableColumn<>("responsavel");
+	        TableColumn<AgendarSala, String> col3 = new TableColumn<>("data");
 	        
 	        
-	      
-	       colMotivo.setCellValueFactory(new PropertyValueFactory<>("motivo"));
-	        colResponsavel.setCellValueFactory(new PropertyValueFactory<>("responsavel"));
-	        colData.setCellValueFactory(new PropertyValueFactory<>("data"));
+	 @SuppressWarnings("unchecked")
+	public AgendarSalaController() {
+	     
+		 TableColumn<AgendarSala, String> col1 = new TableColumn<>("Motivo");
+		 col1.setCellValueFactory(new PropertyValueFactory<>("motivo"));
+		 
+		 TableColumn<AgendarSala, String> col2 = new TableColumn<>("Responsavel");
+	        col2.setCellValueFactory(new PropertyValueFactory<>("responsavel"));
 	        
-
-	        tableAgendarSala.getColumns().addAll( colMotivo, colResponsavel, colData);
-	        tableAgendarSala.getSelectionModel().selectedItemProperty().addListener((obj, antigo, novo) -> {
-	            setEntityAgendarSala(novo);
-	            setEntityAgendarSala(antigo);
-	        });
+			 TableColumn<AgendarSala, String> col3 = new TableColumn<>("Data");
+	        col3.setCellValueFactory(new PropertyValueFactory<>("data"));
+	        
+	        tableAgendarSala.getColumns().addAll( col1, col2, col3);
+	        
+	        col1.setPrefWidth(190);
+			col2.setPrefWidth(190);
+			col3.setPrefWidth(190);
+				
+	        
 	        tableAgendarSala.setItems(agendarSalas);
 
 	        tableAgendarSala.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 	    }
 	
 	
-	public TableView<AgendarSala> getTable() {
-        return tableAgendarSala;
-    }
+	
 
 	public void adicionar() {
-		AgendarSala as = getEntityAgendarSala();
+		AgendarSala as = new AgendarSala();
+		
+		as.setMotivo(motivo.get());
+		as.setResponsavel(responsavel.get());
+		as.setData(data.get());
+		
+		agendarSalas.add(as);
         daoAgendarSala.adicionar(as);
+        limpar();
 		
 	}
 	
-	public boolean remover() {
-        for (AgendarSala as : agendarSalas) {
-            if (as.getResponsavel().toLowerCase().contains(responsavel.get().toLowerCase())) {
-            	agendarSalas.remove(as);
-                return true;
-            }
-        }
-        return false;
+	public void pesquisarPorNome() {
+		 List<AgendarSala> asListPesquisa = daoAgendarSala.pesquisarPorNome(responsavel.get());
+	       
+	        agendarSalas.clear();
+	        agendarSalas.addAll(asListPesquisa);
+	       limpar();
+	    }
+	public TableView<AgendarSala> getTable() {
+        return tableAgendarSala;
     }
 	
 	

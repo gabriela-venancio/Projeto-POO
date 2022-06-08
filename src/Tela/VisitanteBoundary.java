@@ -1,6 +1,5 @@
 package Tela;
 
-import java.security.Principal;
 import java.util.Objects;
 
 import Controller.VisitanteController;
@@ -30,10 +29,8 @@ private final TextField visTxtDestino = new TextField();
 
 private final Button visBtnCadastrar = new Button("Cadastrar");
 private final Button visBtnPesquisar = new Button("Pesquisar");
-private final Button visBtnLimpar = new Button("Limpar");
 private final Button visBtnInicio = new Button("Inicio");
 
-private final Label visLblCpf = new Label("cpf:");
 Label visTitle = new Label("Visitantes");
 
 private final VisitanteController visControl = new VisitanteController();
@@ -73,7 +70,7 @@ public void start(Stage stage) throws Exception {
         visPaneForm.setHgap(15);
         visPaneForm.setAlignment(Pos.CENTER);
 
-        visPaneButton.getChildren().addAll(visBtnCadastrar, visBtnPesquisar, visBtnLimpar,  visBtnInicio);
+        visPaneButton.getChildren().addAll(visBtnCadastrar, visBtnPesquisar,  visBtnInicio);
         visPaneButton.setHgap(10);
         visPaneButton.setVgap(15);
         visPaneButton.setAlignment(Pos.CENTER);
@@ -111,7 +108,7 @@ public void start(Stage stage) throws Exception {
 
 
 private void setStage(Stage stage2) {
-	this.stage = stage;	
+	this.stage = stage2;	
 }
 
 

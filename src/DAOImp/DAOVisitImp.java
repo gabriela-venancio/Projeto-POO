@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DAO.DAOVisitante;
-import Entity.Funcionario;
 import Entity.Visitante;
 
 public class DAOVisitImp implements DAOVisitante{
@@ -36,8 +35,8 @@ public class DAOVisitImp implements DAOVisitante{
 	
 	@Override
 	public List<Visitante> pesquisarPorNome(String string) {
-		List <Visitante> lista = new ArrayList();
-		String  sql = "select * from visitante where cpf like = '%" + string + "%'";
+		List <Visitante> lista = new ArrayList<Visitante>();
+		String  sql = "SELECT * FROM  visitante where nome like '%" + string + "%'";
 		
 		try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD)){
 			PreparedStatement stmt = con.prepareStatement(sql);

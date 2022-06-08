@@ -30,13 +30,11 @@ public class AgendarSalaBoundary extends Application{
 
     private final Button asBtnCadastrar = new Button("Cadastrar");
     private final Button asBtnPesquisar = new Button("Pesquisar");
-    private final Button asBtnLimpar = new Button("Limpar");
     private final Button asBtnInicio = new Button("Inicio");
 
-    private final Label asLblResponsvael = new Label("responsvael:");
 
-    private final AgendarSalaController asControl = new AgendarSalaController();
-    
+        private final AgendarSalaController asControl = new AgendarSalaController();
+
     Label asTitle = new Label("Agenda Sala ");
 
     
@@ -62,7 +60,7 @@ public class AgendarSalaBoundary extends Application{
      
     asPaneForm.add(new Label("motivo:"), 0, 0);
     asPaneForm.add(new Label("responsavel:"), 0, 1);
-    asPaneForm.add(new Label("Data:"), 0, 2);
+    asPaneForm.add(new Label("data:"), 0, 2);
     asPaneForm.add(asTxtMotivo, 1, 0);
     asPaneForm.add(asTxtResponsavel, 1, 1);
     asPaneForm.add(asTxtData, 1, 2);
@@ -71,7 +69,7 @@ public class AgendarSalaBoundary extends Application{
     asPaneForm.setHgap(5);
     asPaneForm.setAlignment(Pos.CENTER);
 
-    asPaneButton.getChildren().addAll(asBtnCadastrar, asBtnPesquisar, asBtnLimpar, asBtnInicio);
+    asPaneButton.getChildren().addAll(asBtnCadastrar, asBtnPesquisar, asBtnInicio);
     asPaneButton.setHgap(50);
     asPaneButton.setVgap(25);
     asPaneButton.setAlignment(Pos.CENTER);
@@ -97,6 +95,8 @@ public class AgendarSalaBoundary extends Application{
 	asBtnInicio.setOnAction(e ->{
 		getStage().close();
 	});
+	
+	
 	Scene scn = new Scene(asPanePrincipal, 1400,800);
 	stage.initStyle(StageStyle.UNDECORATED);
 	stage.setScene(scn);
@@ -104,7 +104,7 @@ public class AgendarSalaBoundary extends Application{
 	setStage(stage);
 }
 private void setStage(Stage stage2) {
-	this.stage = stage;		
+	this.stage = stage2;		
 	}
 
 

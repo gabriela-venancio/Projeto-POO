@@ -29,7 +29,6 @@ public class EventosBaundary extends Application{
 
     private final Button eveBtnCadastrar = new Button("Cadastrar");
     private final Button eveBtnPesquisar = new Button("Pesquisar");
-    private final Button eveBtnLimpar = new Button("Limpar");
     private final Button eveBtnInicio = new Button("Inicio");
 
     private final Label eveLblResponsavel = new Label("responsavel:");
@@ -65,7 +64,7 @@ public class EventosBaundary extends Application{
         evePaneForm.setHgap(5);
         evePaneForm.setAlignment(Pos.CENTER);
 
-        evePaneButton.getChildren().addAll(eveBtnCadastrar, eveBtnPesquisar, eveBtnLimpar,  eveBtnInicio);
+        evePaneButton.getChildren().addAll(eveBtnCadastrar, eveBtnPesquisar,  eveBtnInicio);
         evePaneButton.setHgap(10);
         evePaneButton.setVgap(25);
         evePaneButton.setAlignment(Pos.CENTER);

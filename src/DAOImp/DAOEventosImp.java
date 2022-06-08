@@ -39,7 +39,7 @@ public class DAOEventosImp  implements DAOEventos{
 	public List<Eventos> pesquisarPorNome(String nome) {
 
 			List<Eventos> lista = new ArrayList<>();
-	        String sql = "SELECT * FROM evento WHERE nome LIKE '%" + nome + "%'";
+	        String sql = "SELECT * FROM evento WHERE responsavel LIKE '%" + nome + "%'";
 
 	        
 	        try(Connection con = DriverManager.getConnection(URL, USER, PASSWORD)) {

@@ -10,7 +10,6 @@ import java.util.List;
 
 import DAO.DAOChaves;
 import Entity.Chaves;
-import Entity.Funcionario;
 
 public class DAOChavesImp implements DAOChaves{
 	 private static final String URL = "jdbc:mariadb://localhost:3307/portaria";
@@ -60,17 +59,6 @@ public class DAOChavesImp implements DAOChaves{
 	}
 
 
-	@Override
-	public void remover(String chave) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public List<Chaves> buscarChaves(String chaves) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }
